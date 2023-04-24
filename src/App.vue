@@ -10,7 +10,7 @@ import TitleBarView from './components/titleBar/TitleBarView.vue'
   </div>
 </template>
 
-<style>
+<style scoped>
 .app {
   width: 100vw;
   height: 100vh;
