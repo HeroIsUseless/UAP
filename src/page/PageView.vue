@@ -1,11 +1,45 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import homeModel from '../plugins/home/Model'
 const pageModel = reactive({
   sideContent: homeModel.view.SideView,
   topContent: homeModel.view.TopView,
   bottomContent: homeModel.view.BottomView,
 })
+
+const horizontalLineDivRef = ref<HTMLElement | null>(null)
+const horizontalLineDivTop = ref(200)
+let deltaY = 0;
+const dragging = ref(false)
+
+const onMouseDown = (event: MouseEvent) => {
+  dragging.value = true;
+  deltaY = event.clientY - horizontalLineDivTop.value;
+};
+
+const onMouseMove = (event: MouseEvent) => {
+  if (!dragging.value) return;
+  if (horizontalLineDivRef.value) {
+    horizontalLineDivTop.value = event.clientY - deltaY;
+  }
+};
+
+const onMouseUp = () => {
+  dragging.value = false;
+};
+
+onMounted(() => {
+    // 监听鼠标事件
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+})
+
+onBeforeUnmount(() => {
+  // 移除鼠标事件监听
+  window.removeEventListener('mousemove', onMouseMove);
+  window.removeEventListener('mouseup', onMouseUp);
+})
+
 </script>
 
 <template>
@@ -18,7 +52,7 @@ const pageModel = reactive({
       <div class="main-top">
         <component :is="pageModel.topContent"></component>
       </div>
-      <div class="horizontal-line"></div>
+      <div class="horizontal-line" ref="horizontalLineDivRef" @mousedown="onMouseDown" :style="{top: horizontalLineDivTop + 'px'}"></div>
       <div class="main-bottom">
         <component :is="pageModel.bottomContent"></component>
       </div>
@@ -27,11 +61,13 @@ const pageModel = reactive({
 </template>
 
 <style scoped>
+/* 800 * 600 */
 .page-view {
   width: 100vw;
   flex: 1;
   display: flex;
   background-color: #f0f0f0;
+  position: relative;
 }
 .page-side {
   width: 20vw;
@@ -48,16 +84,19 @@ const pageModel = reactive({
   height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .main-top {
   width: 100%;
-  height: 20vh;
+  height: 60vh;
   background: pink;
 }
 .horizontal-line {
   width: 100%;
   height: 2px;
   background: red;
+  cursor: all-scroll;
+  position: absolute;
 }
 .main-bottom {
   width: 100%;
