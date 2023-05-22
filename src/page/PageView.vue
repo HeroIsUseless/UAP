@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
+import homeModel from '../plugins/home/Model'
 const pageModel = reactive({
-  sideContent: null,
-  topContent: null,
-  bottomContent: null,
+  sideContent: homeModel.view.SideView,
+  topContent: homeModel.view.TopView,
+  bottomContent: homeModel.view.BottomView,
 })
 </script>
 
