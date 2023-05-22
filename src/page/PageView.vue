@@ -77,7 +77,7 @@ onBeforeUnmount(() => {
 .vertical-line {
   width: 2px;
   height: 100%;
-  background: green;
+  background: lightgreen;
 }
 .page-main {
   flex: 1;
@@ -89,18 +89,18 @@ onBeforeUnmount(() => {
 .main-top {
   width: 100%;
   height: 60vh;
-  background: pink;
+  background: lightgoldenrodyellow;
 }
 .horizontal-line {
   width: 100%;
   height: 2px;
-  background: red;
+  background: lightpink;
   cursor: all-scroll;
   position: absolute;
 }
 .main-bottom {
   width: 100%;
   flex: 1;
-  background: purple;
+  background: lightcoral;
 }
 </style>

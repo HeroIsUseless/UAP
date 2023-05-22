@@ -8,5 +8,6 @@ export default reactive({
     TopView,
     SideView,
     BottomView,
-  }
+  },
+  url: 'll',
 });
