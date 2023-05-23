@@ -3,6 +3,16 @@ import TopView from "./view/TopView.vue";
 import SideView from "./view/SideView.vue";
 import BottomView from "./view/BottomView.vue";
 
+export enum TimeType {
+  ms = 'ms',
+  s = 's',
+  m = 'm',
+  h = 'h',
+  d = 'd',
+  y_m_d = 'y_m_d',
+  y_m_d_h_m_s = 'y_m_d_h_m_s',
+}
+
 export default reactive({
   name: 'timecovert',
   view: {
@@ -10,5 +20,7 @@ export default reactive({
     SideView,
     BottomView,
   },
-  url: 'll',
+  data: {
+    timestamp: Date.now(),
+  }
 });

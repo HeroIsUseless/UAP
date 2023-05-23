@@ -1,5 +1,5 @@
 <script setup lang="ts">
 
 </script>
-<template>demo side view</template>
+<template></template>
 <style scoped></style>

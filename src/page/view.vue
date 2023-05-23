@@ -2,8 +2,9 @@
 import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import TitleBarView from './components/titleBar/TitleBarView.vue'
 import { pageModel } from './model'
+import pluginsInit from '../plugins/index'
 
-
+pluginsInit()
 const horizontalLineDivRef = ref<HTMLElement | null>(null)
 const horizontalLineDivTop = ref(200)
 let deltaY = 0;
