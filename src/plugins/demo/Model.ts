@@ -3,7 +3,6 @@ import TopView from "./view/TopView.vue";
 import SideView from "./view/SideView.vue";
 import BottomView from "./view/BottomView.vue";
 import { SmileOutlined } from '@ant-design/icons-vue';
-import { registerPlugin } from "../../page/model";
 
 export const demoModel = reactive({
   id: '294737394ssddskw9w9',
@@ -13,7 +12,8 @@ export const demoModel = reactive({
     TopView,
     SideView,
     BottomView,
+  },
+  data: {
+
   }
 });
-
-registerPlugin(demoModel)
