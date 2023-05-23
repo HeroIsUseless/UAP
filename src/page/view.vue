@@ -1,12 +1,8 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import TitleBarView from './components/titleBar/TitleBarView.vue'
-import homeModel from '../plugins/home/Model'
-const pageModel = reactive({
-  sideContent: homeModel.view.SideView,
-  topContent: homeModel.view.TopView,
-  bottomContent: homeModel.view.BottomView,
-})
+import { pageModel } from './model'
+
 
 const horizontalLineDivRef = ref<HTMLElement | null>(null)
 const horizontalLineDivTop = ref(200)
@@ -44,19 +40,21 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <TitleBarView />
   <div class="page-view">
-    <div class="page-side">
-      <component :is="pageModel.sideContent"></component>
-    </div>
-    <div class="vertical-line"></div>
-    <div class="page-main">
-      <div class="main-top" :style="{height: horizontalLineDivTop + 'px'}">
-        <component :is="pageModel.topContent"></component>
+    <TitleBarView />
+    <div class="page-content">
+      <div class="content-side">
+        <component :is="pageModel.sideContent"></component>
       </div>
-      <div class="horizontal-line" ref="horizontalLineDivRef" @mousedown="onMouseDown" :style="{top: horizontalLineDivTop + 'px'}"></div>
-      <div class="main-bottom">
-        <component :is="pageModel.bottomContent"></component>
+      <div class="vertical-line"></div>
+      <div class="content-main">
+        <div class="main-top" :style="{height: horizontalLineDivTop + 'px'}">
+          <component :is="pageModel.topContent"></component>
+        </div>
+        <div class="horizontal-line" ref="horizontalLineDivRef" @mousedown="onMouseDown" :style="{top: horizontalLineDivTop + 'px'}"></div>
+        <div class="main-bottom">
+          <component :is="pageModel.bottomContent"></component>
+        </div>
       </div>
     </div>
   </div>
@@ -66,36 +64,40 @@ onBeforeUnmount(() => {
 /* 800 * 600 */
 .page-view {
   width: 100vw;
-  flex: 1;
-  display: flex;
-  background-color: #f0f0f0;
+  height: 100vh;
+  /* background-color: lightseagreen; */
   position: relative;
 }
-.page-side {
+.page-content {
+  width: 100vw;
+  height: calc(100vh - 32px);
+  display: flex;
+}
+.content-side {
   width: 20vw;
-  height: 100vh;
-  background: lightblue;
+  height: 100%;
+  /* background: lightblue; */
 }
 .vertical-line {
   width: 2px;
   height: 100%;
-  background: lightgreen;
+  /* background: lightgreen; */
 }
-.page-main {
+.content-main {
   flex: 1;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 .main-top {
   width: 100%;
-  background: lightgoldenrodyellow;
+  /* background: lightgoldenrodyellow; */
 }
 .horizontal-line {
   width: 100%;
   height: 2px;
-  background: lightpink;
+  /* background: lightpink; */
   cursor: all-scroll;
   position: absolute;
 }
@@ -103,6 +105,6 @@ onBeforeUnmount(() => {
   width: 100%;
   padding-top: 2px;
   flex: 1;
-  background: lightcoral;
+  /* background: lightcoral; */
 }
 </style>

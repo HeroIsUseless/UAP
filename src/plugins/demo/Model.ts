@@ -4,6 +4,7 @@ import SideView from "./view/SideView.vue";
 import BottomView from "./view/BottomView.vue";
 
 export default reactive({
+  name: 'demo',
   view: {
     TopView,
     SideView,

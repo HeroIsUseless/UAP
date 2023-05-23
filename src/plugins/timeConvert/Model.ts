@@ -4,11 +4,11 @@ import SideView from "./view/SideView.vue";
 import BottomView from "./view/BottomView.vue";
 
 export default reactive({
-  name: 'qrcode',
+  name: 'timecovert',
   view: {
     TopView,
     SideView,
     BottomView,
   },
-  url: '',
+  url: 'll',
 });

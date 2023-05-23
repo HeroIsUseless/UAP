@@ -3,6 +3,6 @@ import Model from '../Model';
 import QrcodeVue from 'qrcode.vue'
 </script>
 <template>
- <qrcode-vue :value="Model.url" size:300  ></qrcode-vue>
+ <qrcode-vue :value="Model.url" size=300  ></qrcode-vue>
 </template>
 <style scoped></style>
