@@ -81,6 +81,7 @@ onBeforeUnmount(() => {
 .vertical-line {
   width: 2px;
   height: 100%;
+  cursor: all-scroll;
   /* background: lightgreen; */
 }
 .content-main {

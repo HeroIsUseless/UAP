@@ -2,6 +2,7 @@ import { reactive } from "vue"
 import homePlugin from "../plugins/home/Model"
 import qrcodePlugin from "../plugins/qrcode/Model"
 import timeCovertPlugin from "../plugins/timeConvert/Model"
+import urlPlugin from "../plugins/url/Model"
 
 
 export const pageModel = reactive({
@@ -9,6 +10,7 @@ export const pageModel = reactive({
     [homePlugin.name, homePlugin],
     [qrcodePlugin.name, qrcodePlugin],
     [timeCovertPlugin.name, timeCovertPlugin],
+    [urlPlugin.name, urlPlugin],
   ]),
   sideContent: homePlugin.view.SideView,
   topContent: homePlugin.view.TopView,
@@ -22,4 +24,8 @@ export const setNowPlugin = (pluginName: string) => {
     pageModel.topContent = nowPlugin.view.TopView
     pageModel.bottomContent = nowPlugin.view.BottomView
   }
+}
+
+export function registerPlugin(plugin: any) {
+  pageModel.plugins.set(plugin.name, plugin)
 }

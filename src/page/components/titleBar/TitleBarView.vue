@@ -1,43 +1,25 @@
 <script setup lang="ts">
 import { Button } from 'ant-design-vue';
-import { HomeOutlined, QrcodeOutlined, ClockCircleOutlined } from '@ant-design/icons-vue';
+import { HomeOutlined, QrcodeOutlined, ClockCircleOutlined, LinkOutlined } from '@ant-design/icons-vue';
 import {pageModel, setNowPlugin} from "../../model"
-import homePlugin from "../../../plugins/home/Model"
-import qrcodePlugin from "../../../plugins/qrcode/Model"
-import timeCovertPlugin from "../../../plugins/timeConvert/Model"
 
-
-const onHomeBtnClick = () => {
-  setNowPlugin(homePlugin.name)
-}
-
-const onQrcodeBtnClick = () => {
-  setNowPlugin(qrcodePlugin.name)
-}
-
-const onTimeConvertBtnClick = () => {
-  setNowPlugin(timeCovertPlugin.name)
+const onPluginBtnClick = (plugin: any) => {
+  setNowPlugin(plugin.name)
 }
 
 </script>
 
 <template>
   <div class="title-bar">
-    &nbsp;
-    <Button size="small" @click="onHomeBtnClick">
-      <template #icon><HomeOutlined /></template>
-      主页
-    </Button>
-    &nbsp;
-    <Button size="small" @click="onTimeConvertBtnClick">
-      <template #icon><ClockCircleOutlined /></template>
-      时间戳
-    </Button>
-    &nbsp;
-    <Button size="small" @click="onQrcodeBtnClick">
-      <template #icon><QrcodeOutlined /></template>
-      二维码
-    </Button>
+    <template v-for="(plugin, index) in pageModel.plugins">
+      &nbsp;
+      <Button size="small" @click="onPluginBtnClick(plugin[1])">
+        <template #icon>
+          <component :is="plugin[1].icon" />
+        </template>
+        {{ plugin[1].name }}
+      </Button>
+    </template>
   </div>
 </template>
 
