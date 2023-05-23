@@ -1,6 +1,6 @@
 <template>
   <div class="top-view">
-    欢迎来到xx工具箱
+    欢迎来到三块工具箱
   </div>
 </template>
 
