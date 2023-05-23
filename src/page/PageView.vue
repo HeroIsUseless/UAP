@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
+import TitleBarView from './components/titleBar/TitleBarView.vue'
 import homeModel from '../plugins/home/Model'
 const pageModel = reactive({
   sideContent: homeModel.view.SideView,
@@ -43,13 +44,14 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
+  <TitleBarView />
   <div class="page-view">
     <div class="page-side">
       <component :is="pageModel.sideContent"></component>
     </div>
     <div class="vertical-line"></div>
     <div class="page-main">
-      <div class="main-top">
+      <div class="main-top" :style="{height: horizontalLineDivTop + 'px'}">
         <component :is="pageModel.topContent"></component>
       </div>
       <div class="horizontal-line" ref="horizontalLineDivRef" @mousedown="onMouseDown" :style="{top: horizontalLineDivTop + 'px'}"></div>
@@ -88,7 +90,6 @@ onBeforeUnmount(() => {
 }
 .main-top {
   width: 100%;
-  height: 60vh;
   background: lightgoldenrodyellow;
 }
 .horizontal-line {
@@ -100,6 +101,7 @@ onBeforeUnmount(() => {
 }
 .main-bottom {
   width: 100%;
+  padding-top: 2px;
   flex: 1;
   background: lightcoral;
 }

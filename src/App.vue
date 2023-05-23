@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import PageView from './page/PageView.vue'
-import TitleBarView from './components/titleBar/TitleBarView.vue'
 </script>
 
 <template>
   <div class="app">
-    <TitleBarView />
     <PageView />
   </div>
 </template>
