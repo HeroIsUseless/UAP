@@ -3,7 +3,7 @@ import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import TitleBarView from './components/titleBar/TitleBarView.vue'
 import { pageModel } from './model'
 import pluginsInit from '../plugins/index'
-import { shallowRef } from 'vue'
+import { shallowRef, unref } from 'vue'
 
 pluginsInit()
 const horizontalLineDivRef = ref<HTMLElement | null>(null)
@@ -46,16 +46,16 @@ onBeforeUnmount(() => {
     <TitleBarView />
     <div class="page-content">
       <div class="content-side">
-        <component :is="pageModel.sideContent"></component>
+        <component :is="unref(pageModel.sideContent)"></component>
       </div>
       <div class="vertical-line"></div>
       <div class="content-main">
         <div class="main-top" :style="{height: horizontalLineDivTop + 'px'}">
-          <component :is="pageModel.topContent"></component>
+          <component :is="unref(pageModel.topContent)"></component>
         </div>
         <div class="horizontal-line" ref="horizontalLineDivRef" @mousedown="onMouseDown" :style="{top: horizontalLineDivTop + 'px'}"></div>
         <div class="main-bottom">
-          <component :is="pageModel.bottomContent"></component>
+          <component :is="unref(pageModel.bottomContent)"></component>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { reactive } from "vue";
+import { reactive, shallowRef } from "vue";
 import TopView from "./view/TopView.vue";
 import SideView from "./view/SideView.vue";
 import BottomView from "./view/BottomView.vue";
@@ -6,9 +6,9 @@ import BottomView from "./view/BottomView.vue";
 export default reactive({
   name: 'qrcode',
   view: {
-    TopView,
-    SideView,
-    BottomView,
+    TopView: shallowRef(TopView),
+    SideView: shallowRef(SideView),
+    BottomView: shallowRef(BottomView),
   },
   url: '',
 });

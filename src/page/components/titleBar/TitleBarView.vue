@@ -16,7 +16,7 @@ const onPluginBtnClick = (plugin: any) => {
       &nbsp;
       <Button size="small" @click="onPluginBtnClick(plugin[1])">
         <template #icon>
-          <component :is="unref(plugin[1].icon)" />
+          <component :is="plugin[1].icon" />
         </template>
         {{ plugin[1].name }}
       </Button>
