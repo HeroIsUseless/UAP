@@ -10,5 +10,5 @@ export default () => {
   registerPlugin(timeCovertPlugin);
   registerPlugin(qrcodePlugin);
   registerPlugin(urlPlugin);
-  // registerPlugin(combaPlugin);
+  registerPlugin(combaPlugin);
 }

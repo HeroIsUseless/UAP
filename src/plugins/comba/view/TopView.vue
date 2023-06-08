@@ -1,6 +1,8 @@
 <template>
   <div class="top-view">
     <SelectFileDialog />
+    <!-- ...
+    ... -->
   </div>
 </template>
 

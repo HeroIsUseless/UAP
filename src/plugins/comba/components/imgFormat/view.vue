@@ -14,6 +14,18 @@
 import { Button } from 'ant-design-vue';
 import { doNextProcess } from '../../Controller';
 // import { dialog } from 'electron';
+
+// const props = defineProps<{ data: any; }>();
+// 不应该从这里来
+// doNextProcess后，找到下一个组件，然后执行下一个组件的函数
+// 另外，由于是有多个，它只能是一个view
+// 看来需要调用ref数组了，然后执行什么东西
+// 可以右上角一个执行按钮，但是除非有缓存
+const doProcess = (data: any) => {
+  // TODO: 
+  doNextProcess(data)
+}
+
 const onSelectFileBtnClick = async () => {
   const filePaths = await openSelectDialog()
   // console.log('zws 4424', filePaths)
