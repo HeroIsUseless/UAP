@@ -3,6 +3,7 @@ import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import TitleBarView from './components/titleBar/TitleBarView.vue'
 import { pageModel } from './model'
 import pluginsInit from '../plugins/index'
+import { shallowRef } from 'vue'
 
 pluginsInit()
 const horizontalLineDivRef = ref<HTMLElement | null>(null)

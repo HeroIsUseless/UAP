@@ -2,6 +2,7 @@
 import { Button } from 'ant-design-vue';
 import { HomeOutlined, QrcodeOutlined, ClockCircleOutlined, LinkOutlined } from '@ant-design/icons-vue';
 import {pageModel, setNowPlugin} from "../../model"
+import { unref } from 'vue';
 
 const onPluginBtnClick = (plugin: any) => {
   setNowPlugin(plugin.name)
@@ -15,7 +16,7 @@ const onPluginBtnClick = (plugin: any) => {
       &nbsp;
       <Button size="small" @click="onPluginBtnClick(plugin[1])">
         <template #icon>
-          <component :is="plugin[1].icon" />
+          <component :is="unref(plugin[1].icon)" />
         </template>
         {{ plugin[1].name }}
       </Button>
