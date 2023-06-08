@@ -1,10 +1,11 @@
 <template>
   <div class="top-view">
-    demo top view
+    <SelectFileDialog />
   </div>
 </template>
 
 <script setup lang="ts">
+import SelectFileDialog from '../components/selectFileDialog/view.vue'
 
 </script>
 

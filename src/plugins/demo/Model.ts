@@ -4,7 +4,7 @@ import SideView from "./view/SideView.vue";
 import BottomView from "./view/BottomView.vue";
 import { SmileOutlined } from '@ant-design/icons-vue';
 
-export const demoModel = reactive({
+export default reactive({
   id: '294737394ssddskw9w9',
   icon: SmileOutlined,
   name: 'demo',

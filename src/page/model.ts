@@ -4,14 +4,15 @@ import qrcodePlugin from "../plugins/qrcode/Model"
 import timeCovertPlugin from "../plugins/timeConvert/Model"
 import urlPlugin from "../plugins/url/Model"
 
+// [
+//   [homePlugin.name, homePlugin],
+//   [qrcodePlugin.name, qrcodePlugin],
+//   [timeCovertPlugin.name, timeCovertPlugin],
+//   [urlPlugin.name, urlPlugin],
+// ]
 
 export const pageModel = reactive({
-  plugins: new Map([
-    [homePlugin.name, homePlugin],
-    [qrcodePlugin.name, qrcodePlugin],
-    [timeCovertPlugin.name, timeCovertPlugin],
-    [urlPlugin.name, urlPlugin],
-  ]),
+  plugins: new Map(),
   sideContent: homePlugin.view.SideView,
   topContent: homePlugin.view.TopView,
   bottomContent: homePlugin.view.BottomView,

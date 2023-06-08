@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@ant-design/icons-vue": "^6.1.0",
+    "@electron/remote": "^2.0.10",
     "@vitejs/plugin-vue": "^4.1.0",
     "ant-design-vue": "^3.2.19",
     "electron": "^23.1.1",
