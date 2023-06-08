@@ -8,7 +8,7 @@ export const demoModel = reactive({
   id: '294737394ssddskw9w9',
   icon: SmileOutlined,
   name: 'demo',
-  intro: '工程模版',
+  intro: '组件化可拖拽定制插件',
   view: {
     TopView,
     SideView,

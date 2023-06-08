@@ -20,7 +20,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build && electron-builder",
+    "build": "vite build && electron-builder",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -29,6 +29,7 @@
     "ant-design-vue": "^3.2.19",
     "electron": "^23.1.1",
     "electron-builder": "^23.6.0",
+    "iconv-lite": "^0.6.3",
     "node-machine-id": "^1.1.12",
     "qrcode.vue": "^3.4.0",
     "typescript": "^5.0.2",
