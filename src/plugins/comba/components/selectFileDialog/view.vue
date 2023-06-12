@@ -13,24 +13,29 @@
 <script setup lang="ts">
 import { Button } from 'ant-design-vue';
 import { doNextProcess } from '../../Controller';
+import { ipcRenderer } from 'electron';
 // import { dialog } from 'electron';
 const onSelectFileBtnClick = async () => {
   const filePaths = await openSelectDialog()
+  if (filePaths.length) {
+    for(const filePath of filePaths) {
+        console.log('zws file')
+    }
+  }
   // console.log('zws 4424', filePaths)
-  doNextProcess({
-    filePaths
-  })
+  // doNextProcess({
+  //   filePaths
+  // })
 }
 
-// 打开选择小说窗口
- async function openSelectDialog(): Promise<string[]> {
-  // console.log(dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] }))
-  // const openDialogReturnValue = await dialog.showOpenDialog(getCurrentWindow(), {
-  //   title: '选择文件',
-  //   properties: ['openFile', 'multiSelections']
-  // })
-  // return openDialogReturnValue.filePaths || []
-  return []
+async function openSelectDialog(): Promise<string[]> {
+  return new Promise((resolve, reject) => {
+    ipcRenderer.send('open-select-dialog', {});
+    ipcRenderer.on('open-select-dialog-back', (event, arg) => {
+      console.log('zws 9762', arg); // 输出主进程传递的参数
+      resolve(arg.filePaths)
+    });
+  })
 }
 
 </script>

@@ -1,4 +1,4 @@
-import { app, BrowserWindow, shell, ipcMain } from 'electron'
+import { app, BrowserWindow, shell, ipcMain, dialog } from 'electron'
 import { release } from 'node:os'
 import { join } from 'node:path'
 
@@ -114,4 +114,15 @@ ipcMain.handle('open-win', (_, arg) => {
   } else {
     childWindow.loadFile(indexHtml, { hash: arg })
   }
+})
+
+ipcMain.on('open-select-dialog', (_, arg) => {
+  dialog.showOpenDialog(win, {
+    title: '选择网络小说',
+    properties: ['openFile', 'multiSelections']
+  }).then((data) => {
+    _.reply('open-select-dialog-back', {filePaths: data.filePaths});
+  }).catch(() => {
+    _.reply('open-select-dialog-back', {filePaths: []});
+  })
 })
