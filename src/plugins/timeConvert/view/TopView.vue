@@ -1,7 +1,7 @@
 <template>
   <div class="top-view">
     <h1>时间戳转换</h1>
-    <div style="width: 300px">
+    <div class="content">
       <Input v-model:value="formatTime">
         <template #addonAfter>
           <Select v-model:value="unit" style="width: 80px">
@@ -12,6 +12,7 @@
           </Select>
         </template>
       </Input>
+      <Button>开始转换</Button>
     </div>
   </div>
 </template>
@@ -29,12 +30,9 @@ const formatTime = computed(()=>Math.floor(model.data.timestamp))
 .top-view {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+  padding: 12px;
 }
-.text-area {
-  flex: 1;
+.content {
+  display: flex;
 }
 </style>

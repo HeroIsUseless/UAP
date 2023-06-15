@@ -81,10 +81,10 @@ onBeforeUnmount(() => {
   /* background: lightblue; */
 }
 .vertical-line {
-  width: 2px;
+  width: 1px;
   height: 100%;
   cursor: all-scroll;
-  /* background: lightgreen; */
+  background: lightgray;
 }
 .content-main {
   flex: 1;
@@ -99,8 +99,8 @@ onBeforeUnmount(() => {
 }
 .horizontal-line {
   width: 100%;
-  height: 2px;
-  /* background: lightpink; */
+  height: 1px;
+  background: lightgray;
   cursor: all-scroll;
   position: absolute;
 }
