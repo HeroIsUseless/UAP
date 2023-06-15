@@ -1,7 +1,7 @@
 <template>
-  <div class="select-file-dialog">
+  <div class="input-view">
     <div>
-      <Button @click="onSelectFileBtnClick">选择文件</Button>
+      <Button @click="onSelectFileBtnClick">开始执行</Button>
     </div>
     <div v-for="item in filePathsRef">
       {{ item }}
@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from 'ant-design-vue';
+import { Button, Input } from 'ant-design-vue';
 import { doNextProcess } from '../../Controller';
 import { ipcRenderer } from 'electron';
 import { ref } from 'vue';

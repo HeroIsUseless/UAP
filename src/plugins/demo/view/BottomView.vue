@@ -1,5 +1,5 @@
-<template>demo bottom view</template>
 <script setup lang="ts">
 
 </script>
+<template>输出栏</template>
 <style scoped></style>

@@ -15,6 +15,6 @@ export default reactive({
     BottomView: shallowRef(BottomView),
   },
   data: {
-
+    compIndex: 0,
   }
 });

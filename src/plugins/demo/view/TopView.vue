@@ -1,13 +1,11 @@
-<template>
-  <div class="top-view">
-    demo top view
-  </div>
-</template>
-
 <script setup lang="ts">
 
 </script>
-
+<template>
+  <div class="top-view">
+    操作栏
+  </div>
+</template>
 <style scoped>
 .top-view {
   width: 100%;
