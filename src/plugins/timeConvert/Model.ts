@@ -22,5 +22,6 @@ export default reactive({
   },
   data: {
     timestamp: Date.now(),
+    outputs: [] as any[]
   }
 });

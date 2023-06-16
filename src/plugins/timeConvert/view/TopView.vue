@@ -37,6 +37,7 @@ const unit = ref(TimeType.ms)
 const formatTime = ref(Date.now())
 const onConverBtnClick = () => {
   console.log('zws 4423', filterTime(formatTime.value))
+  model.data.outputs.push(filterTime(formatTime.value))
 }
 
 function filterTime(time: any) {

@@ -4,7 +4,9 @@ import model, { TimeType } from "../Model";
 </script>
 <template>
   <div class="bottom-view">
-
+    <div v-for="item in model.data.outputs">
+      {{ item }}
+    </div>
   </div>
 </template>
 <style scoped>
