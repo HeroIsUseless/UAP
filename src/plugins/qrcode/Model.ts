@@ -12,6 +12,7 @@ export default reactive({
   },
   url: '',
   data: {
-    urls: [] as string[]
+    urls: [] as string[],
+    historyUrls: [] as string[]
   }
 });

@@ -17,6 +17,7 @@ export const pageModel = reactive({
   sideContent: shallowRef(homePlugin.view.SideView),
   topContent: shallowRef(homePlugin.view.TopView),
   bottomContent: shallowRef(homePlugin.view.BottomView),
+  horizontalLineDivTop: 200,
 })
 
 export const setNowPlugin = (pluginName: string) => {

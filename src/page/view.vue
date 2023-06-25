@@ -7,19 +7,18 @@ import { shallowRef, unref } from 'vue'
 
 pluginsInit()
 const horizontalLineDivRef = ref<HTMLElement | null>(null)
-const horizontalLineDivTop = ref(200)
 let deltaY = 0;
 const dragging = ref(false)
 
 const onMouseDown = (event: MouseEvent) => {
   dragging.value = true;
-  deltaY = event.clientY - horizontalLineDivTop.value;
+  deltaY = event.clientY - pageModel.horizontalLineDivTop;
 };
 
 const onMouseMove = (event: MouseEvent) => {
   if (!dragging.value) return;
   if (horizontalLineDivRef.value) {
-    horizontalLineDivTop.value = event.clientY - deltaY;
+    pageModel.horizontalLineDivTop = event.clientY - deltaY;
   }
 };
 
@@ -50,10 +49,10 @@ onBeforeUnmount(() => {
       </div>
       <div class="vertical-line"></div>
       <div class="content-main">
-        <div class="main-top" :style="{height: horizontalLineDivTop + 'px'}">
+        <div class="main-top" :style="{height: pageModel.horizontalLineDivTop + 'px'}">
           <component :is="unref(pageModel.topContent)"></component>
         </div>
-        <div class="horizontal-line" ref="horizontalLineDivRef" @mousedown="onMouseDown" :style="{top: horizontalLineDivTop + 'px'}"></div>
+        <div class="horizontal-line" ref="horizontalLineDivRef" @mousedown="onMouseDown" :style="{top: pageModel.horizontalLineDivTop + 'px'}"></div>
         <div class="main-bottom">
           <component :is="unref(pageModel.bottomContent)"></component>
         </div>
