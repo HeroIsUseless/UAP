@@ -11,4 +11,7 @@ export default reactive({
     BottomView: shallowRef(BottomView),
   },
   url: '',
+  data: {
+    urls: [] as string[]
+  }
 });
