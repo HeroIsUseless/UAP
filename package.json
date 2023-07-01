@@ -28,7 +28,7 @@
     "@electron/remote": "^2.0.10",
     "@vitejs/plugin-vue": "^4.1.0",
     "ant-design-vue": "^3.2.19",
-    "electron": "^23.1.1",
+    "electron": "^25.2.0",
     "electron-builder": "^23.6.0",
     "iconv-lite": "^0.6.3",
     "node-machine-id": "^1.1.12",
